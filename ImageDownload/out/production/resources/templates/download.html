@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <title>Download Pictures</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+</head>
+<body>
+<center>
+
+    <br><br>
+    <h2 style="color:red">Download Pictures</h2>
+    <br>
+
+    <p>
+        <mark>Please Enter a target directory and target urls:</mark><br>
+            The target directory should end with '/', it's OK if the target directory doesn't exist, for example: D://image/<br>
+        Enter a url by line, end with "Enter" key, for example: https://movie.douban.com/top250
+    </p><br>
+
+<form class="form-horizontal" role="form" action="#" th:action="@{/download}" th:object="${param}" method="post">
+
+    <div class="form-group" style="width:600px">
+        <label for="directory" class="col-sm-2 control-label">Target Directory</label>
+        <div class="col-sm-10">
+            <input type="text"  th:field="*{directory}" class="form-control" id="directory" placeholder="Enter target directory(end with /)">
+        </div>
+    </div>
+
+    <div class="form-group" style="width:600px">
+        <label for="urls" class="col-sm-2 control-label">URLS</label>
+        <div class="col-sm-10">
+            <textarea  th:field="*{urls}" class="form-control" rows="10" id="urls" placeholder="Enter urls, separated by line"></textarea>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div>
+            <button type="submit" class="btn btn-primary" id="btn">Submit</button>
+            <input type="reset" class="btn btn-warning" value="Reset" />
+        </div>
+    </div>
+</form>
+
+</center>
+</body>
+</html>
